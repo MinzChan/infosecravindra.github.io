@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/adb-cheetsheet.html</loc>
-<lastmod>2019-07-25T01:00:08+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/apache-server-cheetsheet.html</loc>
-<lastmod>2019-08-01T01:52:21+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/curl-cheatsheet.html</loc>
@@ -22,7 +22,7 @@
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/firebase_cheatsheet.html</loc>
-<lastmod>2019-05-12T13:50:16+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/git-cheatsheet.html</loc>
@@ -74,7 +74,11 @@
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/php_cheatsheet.html</loc>
-<lastmod>2019-08-01T01:52:21+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
+</url>
+<url>
+<loc>https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html</loc>
+<lastmod>2019-09-13T01:57:52+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/python-cheatsheet.html</loc>
@@ -106,11 +110,11 @@
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/ufw-cheatsheet.html</loc>
-<lastmod>2019-05-12T13:50:16+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/cheatsheets/vue-cheatsheet.html</loc>
-<lastmod>2019-05-12T13:50:16+05:30</lastmod>
+<lastmod>2019-08-12T10:33:36+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/experiments/block-adblock.html</loc>
@@ -179,10 +183,6 @@
 <url>
 <loc>https://infosecravindra.github.io/digital-marketing/seo/2019/05/13/everything-you-can-do-for-better-seo.html</loc>
 <lastmod>2019-05-13T07:44:34+05:30</lastmod>
-</url>
-<url>
-<loc>https://infosecravindra.github.io/android/2019/06/01/how-to-use-fast-adapter-in-android.html</loc>
-<lastmod>2019-05-03T00:46:29+05:30</lastmod>
 </url>
 <url>
 <loc>https://infosecravindra.github.io/flutter/2019/07/08/flutter-getting-started.html</loc>

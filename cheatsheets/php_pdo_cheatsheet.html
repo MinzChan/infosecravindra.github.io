@@ -1,0 +1,204 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name=viewport><meta content=#fff name=theme-color><meta content="A PHP PDO cheatsheet for people who are learning how to use PDO with traditional and parepared statement" name=description><meta content=" php,  '" name=keywords><meta content="Ravindra Sisodia" name=author><meta content="PHP PDO Cheatsheet.: Ravindra's Blog" property=og:title><meta content=https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html property=og:url><meta content="Ravindra's Blog" property=og:site_name><meta content=article property=og:type><meta content="A PHP PDO cheatsheet for people who are learning how to use PDO with traditional and parepared statement" property=og:description><meta content="Ravindra Sisodia" property=article:author><meta content=php property=article:tag><meta content=2019-09-13T01:57:52Z property=article:published_time><meta content=https://infosecravindra.github.io/assets/images/common.webp property=og:image itemprop=image><meta content=222225015360700 property=fb:app_id><title>PHP PDO Cheatsheet. | Ravindra's Blog</title><link href=/assets/images/favicon/logo.webp rel=icon><link href=/manifest.json rel=manifest><link href=/assets/images/logo-192x192.png rel=apple-touch-icon><link href=/assets/css/all.css rel=stylesheet><script src=https://code.jquery.com/jquery-3.4.1.min.js defer crossorigin=anonymous integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js defer crossorigin=anonymous integrity=sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM></script><script src=/assets/js/mediumish.js defer></script><script src=/assets/js/service-worker-handler.js defer></script><script src=//infosecravindra-github-io.disqus.com/count.js defer id=dsq-count-scr></script><script type=application/ld+json>{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    
+      "image": "https://infosecravindra.github.io/assets/images/common.webp",
+    
+    "url": "https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html",
+    "headline": "PHP PDO Cheatsheet.",
+    "description": "A PHP PDO cheatsheet for people who are learning how to use PDO with traditional and parepared statement",
+    "datePublished": "2019-01-01 00:00:00 +0530",
+    "dateCreated": "2019-01-01 00:00:00 +0530",
+    "dateModified": "2019-09-13 01:57:52 +0530",
+    "inLanguage": "en-US",
+    "isFamilyFriendly": "true",
+    "contentLocation": {
+      "@type": "Place",
+      "name": "Bhopal, IN"
+    },
+    "keywords": [
+    
+      "php"
+    
+    ],
+    "articleSection": "php,",
+    "accountablePerson": {
+  "@type": "Person",
+  "name": "Ravindra Sisodia",
+  "nationality": "Indian",
+  "gender": "male",
+  "Description": "Software Engineer",
+  "sameAs": [
+    "https://twitter.com/InfoSecRavindra",
+    "https://instagram.com/InfoSecRavindra",
+    "https://www.github.com/InfoSecRavindra",
+    "https://www.linkedin.com/in/InfoSecRavindra"
+  ]
+},
+    "author": {
+  "@type": "Person",
+  "name": "Ravindra Sisodia",
+  "nationality": "Indian",
+  "gender": "male",
+  "Description": "Software Engineer",
+  "sameAs": [
+    "https://twitter.com/InfoSecRavindra",
+    "https://instagram.com/InfoSecRavindra",
+    "https://www.github.com/InfoSecRavindra",
+    "https://www.linkedin.com/in/InfoSecRavindra"
+  ]
+},
+    "creator": {
+  "@type": "Person",
+  "name": "Ravindra Sisodia",
+  "nationality": "Indian",
+  "gender": "male",
+  "Description": "Software Engineer",
+  "sameAs": [
+    "https://twitter.com/InfoSecRavindra",
+    "https://instagram.com/InfoSecRavindra",
+    "https://www.github.com/InfoSecRavindra",
+    "https://www.linkedin.com/in/InfoSecRavindra"
+  ]
+},
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ravindra Sisodia",
+      "url": "https://infosecravindra.github.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infosecravindra.github.io/assets/images/favicon/logo.webp",
+        "width":"128",
+        "height":"128"
+      }
+    },
+    "mainEntityOfPage": "https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html"
+  }</script></head><body class=layout-post><nav class="bg-white fixed-top mediumnavigation nav-down navbar navbar-expand-lg navbar-light shadow-sm"><div class="container pr-0"><a href=/ class=navbar-brand><img alt="Ravindra's Blog" class="align-top d-inline-block" src=/assets/images/favicon/logo.webp height=30 width=30>Ravindra's Blog </a><button aria-controls=navbarMediumish aria-expanded=false aria-label="Toggle navigation" class="btn-link navbar-toggler" data-target=#navbarMediumish data-toggle=collapse><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarMediumish><ul class="ml-auto navbar-nav"><li class=nav-item><a href=/index.html class=nav-link><span class=icon-home3></span> &nbsp;&nbsp;Home</a></li><li class=nav-item><a href=/cheatsheets class=nav-link><span class=icon-book></span> &nbsp;&nbsp;Cheatsheets</a></li><li class=nav-item><a href=/experiments class=nav-link><span class=icon-book></span> &nbsp;&nbsp;Experiments</a></li><li class=nav-item><a href=/portfolio class=nav-link><span class=icon-user></span> &nbsp;&nbsp;Projects</a></li><li class="nav-item dropdown"><a href=# class="nav-link dropdown-toggle" aria-expanded=false aria-haspopup=true data-toggle=dropdown id=navbarDropdown role=button><span class=icon-address-book></span> &nbsp;&nbsp;Contact</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a href=mailto:rscipher001@gmail.com class=nav-link rel=noopener target=_blank><span class=icon-envelop></span> &nbsp;&nbsp;Mail</a><div class=dropdown-divider></div><a href=https://www.github.com/InfoSecRavindra/ class=nav-link rel=noopener target=_blank><span class=icon-github></span>&nbsp;&nbsp;GitHub</a> <a href=https://www.linkedin.com/in/InfoSecRavindra/ class=nav-link rel=noopener target=_blank><span class=icon-linkedin></span>&nbsp;&nbsp;LinkedIn</a> <a href=https://www.youtube.com/c/EcoTechClubETC class=nav-link rel=noopener target=_blank><span class=icon-youtube></span>&nbsp;&nbsp;YouTube</a><div class=dropdown-divider></div><a href=https://twitter.com/InfoSecRavindra class=nav-link rel=noopener target=_blank><span class=icon-twitter></span>&nbsp;&nbsp;Twitter</a></div></li></ul></div></div></nav><div class=site-content><div class=container><div class=mainheading><h1 class=sitetitle>Ravindra's Blog</h1><p class=lead>Let's Secure Everything</p></div><div class=main-content><div class=container><div class=row><div class="col-md-2 pl-0"><div class=share><p>Share</p><ul><li class="ml-1 mr-1"><a href="https://facebook.com/sharer.php?u=https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html" rel=noopener target=_blank onclick="window.open(this.href, 'facebook-share');return false;"><span class=sr-only>Facebook</span><span class=icon-facebook2></span></a></li><li class="ml-1 mr-1"><a href="https://twitter.com/intent/tweet?text=PHP+PDO+Cheatsheet.&url=https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html" rel=noopener target=_blank onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><span class=sr-only>Twitter</span> <span class=icon-twitter></span></a></li><li class="ml-1 mr-1"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https://infosecravindra.github.io/cheatsheets/php_pdo_cheatsheet.html" rel=noopener target=_blank onclick="window.open(this.href, 'linkedin-share');return false;"><span class=sr-only>LinkedIn</span> <span class=icon-linkedin></span></a></li></ul><div class=sep></div><ul><li><a href=#disqus_thread class="small smoothscroll"></a></li></ul></div></div><div class="col-md-9 flex-first flex-md-unordered"><div class=mainheading><h1 class=posttitle>PHP PDO Cheatsheet.</h1></div><img alt="PHP PDO Cheatsheet." class="featured-image img-fluid" src=https://infosecravindra.github.io/assets/images/common.webp importance=low><div class=article-post><p>SQL injection is a big problem and prepared statement helps us protect from that, this is a collection of some code to perform basic tasks in PHP using PDO.</p><h2 id=connection>Connection</h2><h2 id=connectionphp><code class=highlighter-rouge>connection.php</code></h2><div class="highlighter-rouge language-php"><div class=highlight><pre class=highlight><code><span class=nv>$host</span> <span class=o>=</span> <span class=s2>"localhost"</span><span class=p>;</span>
+<span class=nv>$username</span> <span class=o>=</span> <span class=s2>"root"</span><span class=p>;</span>
+<span class=nv>$password</span> <span class=o>=</span> <span class=s2>""</span><span class=p>;</span>
+<span class=nv>$database</span> <span class=o>=</span> <span class=s2>"training"</span><span class=p>;</span>
+<span class=k>try</span>
+<span class=p>{</span>
+    <span class=nv>$conn</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>PDO</span><span class=p>(</span><span class=s2>"mysql:host=</span><span class=nv>$host</span><span class=s2>;dbname=</span><span class=nv>$database</span><span class=s2>"</span><span class=p>,</span> <span class=nv>$username</span><span class=p>,</span> <span class=nv>$password</span><span class=p>);</span>
+    <span class=c1>// set the PDO error mode to exception</span>
+    <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>setAttribute</span><span class=p>(</span><span class=nx>PDO</span><span class=o>::</span><span class=na>ATTR_ERRMODE</span><span class=p>,</span> <span class=nx>PDO</span><span class=o>::</span><span class=na>ERRMODE_EXCEPTION</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=k>catch</span><span class=p>(</span><span class=nx>PDOException</span> <span class=nv>$e</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=k>echo</span> <span class=s2>"Connection failed: "</span> <span class=o>.</span> <span class=nv>$e</span><span class=o>-&gt;</span><span class=na>getMessage</span><span class=p>();</span>
+    <span class=k>die</span><span class=p>();</span>
+<span class=p>}</span>
+</code></pre></div></div><h2 id=select-data-with-where-query>Select Data with Where Query</h2><div class="highlighter-rouge language-php"><div class=highlight><pre class=highlight><code><span class=nv>$stmt</span> <span class=o>=</span> <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>prepare</span><span class=p>()</span>
+</code></pre></div></div><div class="highlighter-rouge language-php"><div class=highlight><pre class=highlight><code><span class=cp>&lt;?php</span>
+
+<span class=k>function</span> <span class=nf>precho</span><span class=p>(</span><span class=nv>$input</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=k>echo</span> <span class=s2>"&lt;pre&gt;"</span><span class=p>;</span>
+    <span class=nb>print_r</span><span class=p>(</span><span class=nv>$input</span><span class=p>);</span>
+    <span class=k>echo</span> <span class=s2>"&lt;/pre&gt;"</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nv>$host</span> <span class=o>=</span> <span class=s2>"localhost"</span><span class=p>;</span>
+<span class=nv>$username</span> <span class=o>=</span> <span class=s2>"ravindra"</span><span class=p>;</span>
+<span class=nv>$password</span> <span class=o>=</span> <span class=s2>"ravindra"</span><span class=p>;</span>
+<span class=nv>$database</span> <span class=o>=</span> <span class=s2>"training"</span><span class=p>;</span>
+<span class=k>try</span>
+<span class=p>{</span>
+    <span class=c1>// Create a new PDO instrance</span>
+    <span class=nv>$conn</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>PDO</span><span class=p>(</span><span class=s2>"mysql:host=</span><span class=nv>$host</span><span class=s2>;dbname=</span><span class=nv>$database</span><span class=s2>"</span><span class=p>,</span> <span class=nv>$username</span><span class=p>,</span> <span class=nv>$password</span><span class=p>);</span>
+
+    <span class=sd>/**
+     * Set error mode to exception,
+     * You can also use ERRMODE_SILENT to ignore erros and
+     * ERRMODE_WARNING to show errors as warnings.
+     **/</span>
+    <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>setAttribute</span><span class=p>(</span><span class=nx>PDO</span><span class=o>::</span><span class=na>ATTR_ERRMODE</span><span class=p>,</span> <span class=nx>PDO</span><span class=o>::</span><span class=na>ERRMODE_EXCEPTION</span><span class=p>);</span>
+    
+    <span class=sd>/**
+     * Sets default fetch to associative array mode
+     * We can also use indexed array
+     **/</span>
+    <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>setAttribute</span><span class=p>(</span><span class=nx>PDO</span><span class=o>::</span><span class=na>ATTR_DEFAULT_FETCH_MODE</span><span class=p>,</span> <span class=nx>PDO</span><span class=o>::</span><span class=na>FETCH_ASSOC</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=k>catch</span><span class=p>(</span><span class=nx>PDOException</span> <span class=nv>$e</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=c1>// This code will only run when PDO will not be able to connect to the database</span>
+    <span class=c1>// We can get error message with $e-&gt;message() function</span>
+    <span class=k>echo</span> <span class=s2>"Connection failed: "</span> <span class=o>.</span> <span class=nv>$e</span><span class=o>-&gt;</span><span class=na>getMessage</span><span class=p>();</span>
+    <span class=k>die</span><span class=p>();</span>
+<span class=p>}</span>
+
+<span class=c1>// Select multiple data with where condition</span>
+
+<span class=c1>// Select id, name, email users with id greater than 1</span>
+<span class=nv>$select_users_query</span> <span class=o>=</span> <span class=s2>"SELECT id, name, email FROM users WHERE id &gt; :id LIMIT 5"</span><span class=p>;</span>
+<span class=nv>$stmt</span> <span class=o>=</span> <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>prepare</span><span class=p>(</span><span class=nv>$select_users_query</span><span class=p>);</span>
+
+<span class=c1>// $stmt-&gt;bindParam(":id", 1);</span>
+
+<span class=nv>$select_users_query_result</span> <span class=o>=</span> <span class=nv>$stmt</span><span class=o>-&gt;</span><span class=na>execute</span><span class=p>([</span>
+    <span class=s1>'id'</span> <span class=o>=&gt;</span> <span class=mi>1</span><span class=p>,</span>
+<span class=p>]);</span>
+
+<span class=k>if</span> <span class=p>(</span><span class=nv>$select_users_query_result</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=c1>// Query Success</span>
+
+    <span class=c1>// This will fetch array of array</span>
+    <span class=k>echo</span> <span class=s2>"&lt;h1&gt;Select Mutiple&lt;/h1&gt;"</span><span class=p>;</span>
+    <span class=c1>// $users = $stmt-&gt;fetchAll();</span>
+    
+    <span class=c1>// Fetch as objects</span>
+    <span class=nv>$users</span> <span class=o>=</span> <span class=nv>$stmt</span><span class=o>-&gt;</span><span class=na>fetchAll</span><span class=p>(</span><span class=nx>PDO</span><span class=o>::</span><span class=na>FETCH_CLASS</span><span class=p>);</span>
+    
+    <span class=c1>// print_r with pre tags to preserve formatting</span>
+    <span class=nx>precho</span><span class=p>(</span><span class=nv>$users</span><span class=p>);</span>
+    <span class=k>echo</span> <span class=s2>"&lt;hr&gt;"</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=k>else</span>
+<span class=p>{</span>
+    <span class=c1>// Query Failed</span>
+    <span class=k>echo</span> <span class=s2>"Query Failed"</span><span class=p>;</span>
+    <span class=k>die</span><span class=p>();</span>
+<span class=p>}</span>
+<span class=nv>$stmt</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+
+
+
+<span class=c1>// Select one with where condition</span>
+
+<span class=c1>// Select id, name, email users with id greater than 1</span>
+<span class=nv>$select_user_query</span> <span class=o>=</span> <span class=s2>"SELECT id, name, email FROM users WHERE id &gt; :id LIMIT 1"</span><span class=p>;</span>
+<span class=nv>$stmt</span> <span class=o>=</span> <span class=nv>$conn</span><span class=o>-&gt;</span><span class=na>prepare</span><span class=p>(</span><span class=nv>$select_user_query</span><span class=p>);</span>
+
+<span class=nv>$stmt</span><span class=o>-&gt;</span><span class=na>bindParam</span><span class=p>(</span><span class=s2>":id"</span><span class=p>,</span> <span class=nv>$a</span> <span class=o>=</span> <span class=s1>'1'</span><span class=p>);</span>
+
+<span class=c1>// $select_users_query_result = $stmt-&gt;execute([</span>
+<span class=c1>//     'id' =&gt; 1,</span>
+<span class=c1>// ]);</span>
+
+<span class=nv>$select_user_query_result</span> <span class=o>=</span> <span class=nv>$stmt</span><span class=o>-&gt;</span><span class=na>execute</span><span class=p>();</span>
+
+<span class=k>if</span> <span class=p>(</span><span class=nv>$select_user_query_result</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=c1>// Query Success</span>
+
+    <span class=c1>// This will fetch array of array</span>
+    <span class=k>echo</span> <span class=s2>"&lt;h1&gt;Select Single&lt;/h1&gt;"</span><span class=p>;</span>
+    <span class=c1>// $users = $stmt-&gt;fetchAll();</span>
+    
+    <span class=c1>// Fetch as objects</span>
+    <span class=nv>$user</span> <span class=o>=</span> <span class=nv>$stmt</span><span class=o>-&gt;</span><span class=na>fetchObject</span><span class=p>();</span>
+    
+    <span class=c1>// print_r with pre tags to preserve formatting</span>
+    <span class=nx>precho</span><span class=p>(</span><span class=nv>$user</span><span class=p>);</span>
+    <span class=k>echo</span> <span class=s2>"&lt;hr&gt;"</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=k>else</span>
+<span class=p>{</span>
+    <span class=c1>// Query Failed</span>
+    <span class=k>echo</span> <span class=s2>"Query Failed"</span><span class=p>;</span>
+    <span class=k>die</span><span class=p>();</span>
+<span class=p>}</span>
+
+</code></pre></div></div></div><hr><p><span>Original:&nbsp;<time datetime=2019-01-01>01 Jan 2019</time></span> <span class="clearfix float-right">Updated:&nbsp;<time datetime=2019-09-13>Sep 13, 2019</time></span></p><hr><div class=after-post-tags><ul class=tags><li><a href=/archives/cheatsheets_archive.html#php class=post-tag>php</a></li></ul></div><div class="row PageNavigation d-flex font-weight-bold justify-content-between"><a href=https://infosecravindra.github.io/cheatsheets/php_cheatsheet.html class="col-md-6 d-block prev">&laquo; PHP Cheatsheet.</a> <a href=https://infosecravindra.github.io/cheatsheets/python-cheatsheet.html class="col-md-6 d-block next text-lg-right">Python Cheatsheet &raquo;</a><div class=clearfix></div></div></div></div></div><div class=container><div class="row justify-content-center mb-5" id=comments><div class="col-md-9 col-offset-1"><div id=disqus_thread></div><script src=/assets/js/disqus.js></script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></div></div></div></div><footer class=footer><div class=container><div class="row text-dark"><div class="col-md-6 col-sm-6 text-center text-lg-left">Copyright © 2019 Ravindra Sisodia</div><div class="col-md-6 col-sm-6 text-center text-lg-right"><a href=https://www.wowthemes.net class=text-dark rel=noopener target=_blank>Mediumish Theme</a> by WowThemes.net</div></div></div></footer></div></body></html>
